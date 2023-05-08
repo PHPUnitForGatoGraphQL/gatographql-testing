@@ -12,7 +12,7 @@ trait GraphQLServerTestExecuterTrait
      *
      * @see wp-includes/class-wp-fatal-error-handler.php
      */
-    protected function setupToOutputOriginalExceptionMessage()
+    protected function setupToOutputOriginalExceptionMessage(): void
     {
         /**
          * @see wp-includes/class-wp-fatal-error-handler.php
@@ -54,7 +54,9 @@ trait GraphQLServerTestExecuterTrait
             'Content-Type',
             'application/json'
         ));
-        _e(json_encode(['artificialError' => $errorMessage]));
+        /** @var string */
+        $jsonResponse = json_encode(['artificialError' => $errorMessage]);
+        _e($jsonResponse);
         exit;
     }
 }
