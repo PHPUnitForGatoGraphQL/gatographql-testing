@@ -14,11 +14,19 @@ class PluginHelpers
             return true;
         }
 
-        if (!isset($_SERVER['HTTP_HOST'])) {
+        /**
+         * @var string|null
+         * phpcs:disable SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable.DisallowedSuperGlobalVariable
+         */
+        $httpHost = $_SERVER['HTTP_HOST'] ?? null;
+        if ($httpHost === null) {
             return false;
         }
 
-        /** @var string */
+        /**
+         * @var string
+         * phpcs:disable SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable.DisallowedSuperGlobalVariable
+         */
         $httpHost = $_SERVER['HTTP_HOST'];
 
         $validTestingDomains = array_merge(
