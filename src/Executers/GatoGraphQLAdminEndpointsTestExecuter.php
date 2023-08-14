@@ -40,9 +40,9 @@ class GatoGraphQLAdminEndpointsTestExecuter
     public function testGatoGraphQLAdminEndpoints(): void
     {
         $methodToExpectedEndpoints = [
-            GatoGraphQL::getAdminEndpoint() => '/wp-admin/edit.php?page=gato_graphql&action=execute_query',
-            GatoGraphQL::getAdminBlockEditorEndpoint() => '/wp-admin/edit.php?page=gato_graphql&action=execute_query&endpoint_group=blockEditor',
-            GatoGraphQL::getAdminCustomEndpoint('myCustomEndpointGroup') => '/wp-admin/edit.php?page=gato_graphql&action=execute_query&endpoint_group=myCustomEndpointGroup',
+            GatoGraphQL::getAdminEndpoint() => '/wp-admin/edit.php?page=gatographql&action=execute_query',
+            GatoGraphQL::getAdminBlockEditorEndpoint() => '/wp-admin/edit.php?page=gatographql&action=execute_query&endpoint_group=blockEditor',
+            GatoGraphQL::getAdminCustomEndpoint('myCustomEndpointGroup') => '/wp-admin/edit.php?page=gatographql&action=execute_query&endpoint_group=myCustomEndpointGroup',
         ];
 
         foreach ($methodToExpectedEndpoints as $methodEndpoint => $expectedEndpoint) {
@@ -56,7 +56,7 @@ class GatoGraphQLAdminEndpointsTestExecuter
                 continue;
             }
             $this->outputArtificialErrorAsJSONResponse(sprintf(
-                \__('Admin endpoint "%s" is expected, but "%s" is returned instead', 'gato-graphql-testing'),
+                \__('Admin endpoint "%s" is expected, but "%s" is returned instead', 'gatographql-testing'),
                 $expectedEndpoint,
                 $methodEndpoint
             ));
